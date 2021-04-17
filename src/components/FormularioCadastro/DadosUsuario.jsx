@@ -1,11 +1,16 @@
 const { TextField, Button } = require("@material-ui/core");
 
-function DadosUsuario() {
+function DadosUsuario({aoEnviar}) {
   return (
-    <form>
+    <form
+        onSubmit={(event) => {
+            event.preventDefault();
+            aoEnviar();
+        }}
+        >
       <TextField id="email" type="email" label="Email" />
       <TextField id="senha" type="password" label="Senha" />
-      <Button>Salvar</Button>
+      <Button type="submit">Salvar</Button>
     </form>
   );
 }
